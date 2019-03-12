@@ -15,9 +15,9 @@ import java.util.ArrayList;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder> {
     Context context;
-    ArrayList<String> names;
-    ArrayList<String> images;
-    public RecyclerAdapter(Context context,ArrayList<String> names,ArrayList<String> images)
+    String[] names;
+    int [] images;
+    public RecyclerAdapter(Context context,String[] names,int[] images)
     {
         this.context = context;
         this.images = images;
@@ -34,15 +34,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder recyclerViewHolder, int i) {
 
-        String name = names.get(i);
-        String image = images.get(i);
-        recyclerViewHolder.image.setImageURI(image);
+        String name = names[i];
+        int image = images[i];
+        recyclerViewHolder.image.setImageResource(image);
         recyclerViewHolder.name.setText(name);
     }
 
     @Override
     public int getItemCount() {
-        return names.size();
+        return names.length;
     }
 
     public class RecyclerViewHolder extends RecyclerView.ViewHolder {

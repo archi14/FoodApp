@@ -13,14 +13,15 @@ public class OptionsActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerAdapter recyclerAdapter;
     String[] names;
-    String [] images;
+    int [] images;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options);
         names = new String[]{"Foxeb Breakup","Johnny's Hangouts","Bros and Hoes","The Avaitor Club"};
+        images = new int[]{R.drawable.images, R.drawable.images2, R.drawable.images3, R.drawable.images4};
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
-        recyclerAdapter = new RecyclerAdapter(getApplicationContext(),Names,images);
+        recyclerAdapter = new RecyclerAdapter(getApplicationContext(),names,images);
         recyclerView.setAdapter(recyclerAdapter);
 
     }
